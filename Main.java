@@ -5,26 +5,28 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        int[] array = {8, 2, 3, 4, 5, 6, 7, 1, 9, 10};
-        int count = 0;
-
+        int[] array = {3, 1, 3, 10, 5, 2, 7, 1, 9, 10};
+        boolean flag = false;
+        
         for (int i = 0; i < array.length - 1; i++) {
-            if (count + i == array.length) {
+            if (flag) {
                 break;
             }
-            count = 0;
+            flag = true;
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
                     int maxElement = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = maxElement;
-                } else {
-                    count++;
+                    flag = false;
                 }
             }
-
-
         }
         System.out.println(Arrays.toString(array));
     }
 }
+
+
+
+
+
